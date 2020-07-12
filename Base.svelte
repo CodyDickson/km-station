@@ -18,9 +18,9 @@
         <h2>Buildings</h2>
         <button>Construct</button>
     </div>
-    <div class="item">
+    <div class="item defenses">
         <h2>Defenses</h2>
-        <div>{$MainStore.turrets} Turrets</div>
+        <div><img src="art/Icons/turrets.png" width="75" height="75" alt="Turret"><img src="art/Icons/turrets.png" width="75" height="75" alt="Turret"></div>
         {#if $MainStore.resources >= 15}
             <button on:click={buildTurret}>Build Turret</button>
         {:else}
@@ -37,7 +37,7 @@
         {/if}
     </div>
     <div class="item">
-        <h2>Shanty Town</h2>
+        <h2>Desolation</h2>
         <button>Upgrade KM-Station</button>
     </div>
 </div>
@@ -57,7 +57,7 @@
 	}
 
     .item {
-        background: rgb(194, 194, 194);
+        background: #f2f3f4;
         text-align: center;
         box-shadow: 0 2px 8px rgba(0,0,0,0.26);
         margin: 1em;
@@ -68,5 +68,9 @@
 
     #nextRaid {
         min-width: 500px;
+    }
+
+    .defenses img {
+        border: 3px solid black;
     }
 </style>

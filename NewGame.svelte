@@ -4,16 +4,15 @@
     import { EnemyStore, MainStore, NextRaid } from './store.js';
 
     const newGame = () => {
-        $MainStore.week = 1;
-		$MainStore.resources = 15;
-        $MainStore.shelters = 2;
+        $MainStore.week = 0;
+        $MainStore.resources = 0;
+        $MainStore.turrets = 1;
+        $MainStore.shelters = 1;
         $MainStore.gameState = true;
-        $MainStore.livingCharacters = 2;
+        $MainStore.livingCharacters = 1;
         charGenerator(1);
-        charGenerator(2);
-        enemyGenerator(1, 3);
-        enemyGenerator(1, 3);
-        enemyGenerator(1, 3);
+        enemyGenerator(1, 2);
+        enemyGenerator(1, 2);
         // Generate the raid list for the next raid
         $NextRaid = [];
         let enemyChoice = Math.floor(Math.random() * $EnemyStore.length);

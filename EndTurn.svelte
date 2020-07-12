@@ -93,7 +93,7 @@
                 let activityChance;
                 let temp = '';
                 //
-                if (activity == 'Explore the Unknown World') {
+                if (activity == 'Explore the Collapsed World') {
                     activityChance = random(1,28);
                     if (activityChance == 1) {
                         temp = colorGenerator();
@@ -236,7 +236,6 @@
                     }
                     $StoryStore[1].voice = 5;
                 }
-                // Add more to the Resist the Mysterious Voice storyline
             }
             logContent.push(content);
             content = '';

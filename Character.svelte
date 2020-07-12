@@ -5,7 +5,7 @@
 <div id="character" class="container">
     {#each $CharStore as char}
         <div class="item">
-            <div>
+            <div class="portrait">
                 {#if char.health > 0}
                     <img src="{char.pic}.jpg" alt="{char.name}">
                 {:else}
@@ -14,30 +14,44 @@
             </div>
             <h2>{char.name}</h2>
             {#if char.health > 0}
-                <div>Alive ({char.health} Health)</div>
+                <div class="container">
+                    <div class="healthBar">
+                        <div class="statText">{char.health}</div>
+                        <div><img src="art/Icons/health.png" width="50" height="50" alt="Health"></div>
+                    </div>
+                    <div class="healthBar">
+                        <div class="statText">{char.memories}</div>
+                        <div><img src="art/Icons/memories.png" width="50" height="50" alt="Memories"></div>    
+                    </div>
+                </div>
+                <div class="stats">
+                    <div class="container">
+                        <div class="item"><div class="statText">{char.fighting}</div><img src="art/Icons/fighting.png" width="50" height="50" alt="Fighting"></div>
+                        <div class="item"><div class="statText">{char.scavenging}</div><img src="art/Icons/scavenging.png" width="50" height="50" alt="Scavenging"></div>
+                        <div class="item"><div class="statText">{char.doctoring}</div><img src="art/Icons/doctoring.png" width="50" height="50" alt="Doctoring"></div>
+                    </div>
+                </div>
                 <br>
-                <div>Fighting: {char.fighting} | Scavenging: {char.scavenging} | Doctoring: {char.doctoring}</div>
-                <br>
-                <div>Level: {char.level}</div>
-                <br>
-                <div>
+                <div class="dropdowns">
                     <label for="job">Job</label>
                     <select id="job{char.ID}">
                         <option value="defender">Defender</option>
                         <option value="scavenger">Scavenger</option>
                         <option value="medic">Medic</option>
-                        <option value="student">Student</option>
                     </select>
                 </div>
                 <br>
-                <div>
+                <div class="dropdowns">
                     <label for="activity">Activity</label>
                     <select id="activity{char.ID}">
-                        <option>Explore the Unknown World</option>
+                        <option>Explore the Collapsed World</option>
                         {#if $StoryStore[1].voice == 1 && $StoryStore[1].character == char.ID}<option>Listen to the Mysterious Voice</option>{/if}
                         {#if $StoryStore[1].voice >= 2 && $StoryStore[1].voice < 4 && $StoryStore[1].character == char.ID}<option>Listen to the Mysterious Voice</option>{/if}
                         {#if $StoryStore[1].voice == 1 && $StoryStore[1].character == char.ID}<option>Resist the Mysterious Voice</option>{/if}
                         {#if $StoryStore[1].voice >= 5 && $StoryStore[1].voice < 7 && $StoryStore[1].character == char.ID}<option>Resist the Mysterious Voice</option>{/if}
+                        <option>Search KM-Station</option>
+                        <option>Poison the Water Supply (Voice)</option>
+                        <option>Run Naked Into the Wild (Voice)</option>
                     </select>
                 </div>
             {:else}
@@ -50,7 +64,7 @@
 </div>
 
 <style>
-    img {
+    .portrait img {
         border: 1px solid black;
         box-shadow: 3px 3px rgba(0,0,0,0.26);
     }
@@ -59,16 +73,67 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
-		align-items: center;
+        align-items: center;
 	}
 
     .item {
-        background: rgb(194, 194, 194);
+        background: #f2f3f4;
         text-align: center;
         box-shadow: 0 2px 8px rgba(0,0,0,0.26);
         margin: 1em;
         padding: 1rem;
-        border-radius: 1px;
+        border-radius: 10px;
         max-width: 300px;
+        border: 1px solid black;
+    }
+
+    #character h2 {
+        font: 26px 'Orbitron', 'Roboto', sans-serif;
+        max-width: 300px;
+        letter-spacing: 2px;
+    }
+
+    .stats .container {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    .stats .item {
+        background: #f2f3f4;
+        text-align: center;
+        box-shadow: 2px 2px 8px rgba(0,0,0,.4);
+        margin: .2em 0 0 0;
+        border-radius: 0px;
+        padding: .5em;
+        border: none;
+    }
+
+    .statText {
+        font: bold 20px 'Roboto', sans-serif;
+        padding: .5em;
+    }
+
+    .dropdowns {
+        box-shadow: 0 2px 8px rgba(0,0,0,.4);
+        padding: .5em 0 .5em 0;
+        font: bold 18px 'Roboto', sans-serif;
+    }
+
+    .dropdowns label {
+        padding-bottom: .5em;
+    }
+
+    .healthBar {
+        box-shadow: 0 2px 8px rgba(0,0,0,.4);
+        font: 16px 'Roboto', sans-serif;
+    }
+
+    .container .healthBar {
+        padding: .5em;
+    }
+
+    .healthBar img {
+        border-radius: 50%;
+        border: 3px solid black;
     }
 </style>

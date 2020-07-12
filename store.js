@@ -11,6 +11,7 @@ export const MainStore = writable ({
     livingCharacters: 0,
     deadCharacters: 0,
     resources: 15,
+    memories: 0,
     turrets: 0,
     shelters: 2,
     enemyPower: 3,

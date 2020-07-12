@@ -12,7 +12,7 @@
 </ul>
 
 <ul>
-    <h3>Bestiary</h3>
+    <h3>The Transfigured</h3>
     {#each $EnemyStore as enemy}
         <li>
             {enemy.name} ({enemy.fighting})
