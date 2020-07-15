@@ -12,7 +12,11 @@
                     <img src="{char.pic}b.jpg" alt="{char.name}">
                 {/if}
             </div>
-            <h2>{char.name}</h2>
+            {#if char.gender == 1}
+                <h2 class="pink">{char.name}</h2>
+            {:else}
+                <h2 class="blue">{char.name}</h2>
+            {/if}
             {#if char.health > 0}
                 <div class="container">
                     <div class="healthBar">
@@ -45,13 +49,8 @@
                     <label for="activity">Activity</label>
                     <select id="activity{char.ID}">
                         <option>Explore the Collapsed World</option>
-                        {#if $StoryStore[1].voice == 1 && $StoryStore[1].character == char.ID}<option>Listen to the Mysterious Voice</option>{/if}
-                        {#if $StoryStore[1].voice >= 2 && $StoryStore[1].voice < 4 && $StoryStore[1].character == char.ID}<option>Listen to the Mysterious Voice</option>{/if}
-                        {#if $StoryStore[1].voice == 1 && $StoryStore[1].character == char.ID}<option>Resist the Mysterious Voice</option>{/if}
-                        {#if $StoryStore[1].voice >= 5 && $StoryStore[1].voice < 7 && $StoryStore[1].character == char.ID}<option>Resist the Mysterious Voice</option>{/if}
-                        <option>Search KM-Station</option>
-                        <option>Poison the Water Supply (Voice)</option>
-                        <option>Run Naked Into the Wild (Voice)</option>
+                        {#if $StoryStore[0].kms < 2}<option>Search KM-Station</option>{/if}
+                        {#if ($MainStore.station == 'Shanty Town') && ($StoryStore[0].kms >= 2) && ($StoryStore[0].kms < 5)}<option>Study KM-Station</option>{/if}
                     </select>
                 </div>
             {:else}
@@ -135,5 +134,13 @@
     .healthBar img {
         border-radius: 50%;
         border: 3px solid black;
+    }
+
+    .pink {
+        color: #eeafde;
+    }
+
+    .blue {
+        color: #85cde5;
     }
 </style>

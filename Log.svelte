@@ -6,25 +6,41 @@
     <div class="item">
         <h2>Event Log</h2>
     </div>
-    <div class="item">
         {#each $LogStore as log}
-            <div class="entry">
-                <h3>{log.title}</h3>
-                {#each log.logContent as content}
-                    <div class="content">{@html content}</div>
+            <div class="item">
+                <h2>{log.title}</h2>
+                {#each log.charContent as char}
+                    <div class="item inner content">
+                        {#if char.gender == 1}
+                            <h3 class="pink">{char.name}</h3>
+                        {:else}
+                            <h3 class="blue">{char.name}</h3>
+                        {/if}
+                        <p class="italics">{char.job}</p>
+                        <p>{char.jobContent}</p>
+                        <p class="italics">{char.activity}</p>
+                        <p>{char.activityContent}</p>
+                    </div>
                 {/each}
-                <h4>Raid</h4>
-                <div class="combat">KM-Station ({log.defense}) vs. The Transfigured ({log.raid})</div>
-                <div class="combat">{log.raidText}</div>
+                {#each log.raidContent as raid}
+                <div class="item inner content">
+                    <h3>Raid</h3>
+                    <div class="combat">KM-Station ({raid.defense}) vs. The Transfigured ({raid.raid})</div>
+                    <div class="combat">{raid.raidText}</div>
+                </div>
+                {/each}
             </div>
-            <div class="combat"></div>
         {/each}
-    </div>
     <div class="item">
-        <h3>Week 0, Unknown Year</h3>
-        <div class="content">
-            <p>Somewhere to the left of existence, the <strong>MACHINE</strong> churned. One human being was thrown from the black hole and collided with the satellite at the center of KM-Station. Others were launched but they were not fortunate enough to hit something solid -  instead they passed through rapidly twitching quarks and boiling clouds of radiation. Most of these unlucky souls retained their original names but were unrecognizable as people. They were in a state of flux; of transfiguration. They were becoming what they really were.</p>
-            <p><strong>{$CharStore[0].name}</strong> slowly opened their eyes.</p>
+        <h2>Week 0, Unknown Year</h2>
+        <div class="item inner content">
+            {#if $CharStore[0].gender == 1}
+                <h3 class="pink">{$CharStore[0].name}</h3>
+            {:else}
+                <h3 class="blue">{$CharStore[0].name}</h3>
+            {/if}
+            <p><i>Arrival at KM-Station</i></p>
+            <p>I can still hear the MACHINE, churning somewhere just outside existence. It gnaws at the back of my mind. I don't know what the MACHINE really is, or what it even does. I just know that for an incomprehensible period of time I was caught between the normal world and a nightmare of ever-expanding fractals.</p><p>I was thrown from that churning abyss and collided with the satellite at the center of KM-Station. That was a few hours ago; I figured a journal was a good way to keep track of my thoughts. I remember hearing the screams of other people who were thrown from the storm but I worry they were not as fortunate as me.</p>
         </div>
     </div>
 </div>
@@ -60,5 +76,30 @@
 
     .combat {
         text-align: center;
+    }
+
+    .inner {
+        margin: 1em auto;
+        width: 80%;
+    }
+
+    h2 {
+        font: bold 26px 'Orbitron', 'Roboto', sans-serif;
+    }
+
+    h3 {
+        font: bold 18px 'Orbitron', 'Roboto', sans-serif;
+    }
+
+    .pink {
+        color: #eeafde;
+    }
+
+    .blue {
+        color: #85cde5;
+    }
+
+    .italics {
+        font-style: italic;
     }
 </style>

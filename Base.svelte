@@ -1,6 +1,7 @@
 <script>
     import { MainStore } from './store.js';
     import RaidList from './RaidList.svelte';
+    import Upgrade from './Buttons/Upgrade.svelte';
 
     const buildShelter = () => {
 		$MainStore.shelters += 1;
@@ -37,8 +38,8 @@
         {/if}
     </div>
     <div class="item">
-        <h2>Desolation</h2>
-        <button>Upgrade KM-Station</button>
+        <h2>{$MainStore.station}</h2>
+        <Upgrade />
     </div>
 </div>
 

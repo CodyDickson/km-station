@@ -22,9 +22,6 @@
             {$MainStore.livingCharacters} Living Characters
         </div>
         <div class="item">
-            {$MainStore.deadCharacters} Disintegrated Characters
-        </div>
-        <div class="item">
             {$MainStore.resources} Resources
         </div>
     </div>

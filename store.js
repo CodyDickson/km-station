@@ -7,20 +7,20 @@ export const EnemyStore = writable ([]);
 export const LogStore = writable ([]);
 
 export const MainStore = writable ({
-    week: 1,
-    livingCharacters: 0,
-    deadCharacters: 0,
-    resources: 15,
-    memories: 0,
-    turrets: 0,
-    shelters: 2,
     enemyPower: 3,
-    gameState: true
+    gameState: true,
+    livingCharacters: 0,
+    resources: 15,
+    shelters: 1,
+    station: 'Desolation',
+    turrets: 1,
+    week: 0
 });
 
 export const NextRaid = writable ([]);
 
 export const StoryStore = writable ([
+    {kms: 0},
     {bird: 0, character: 0},
     {voice: 0, character: 0},
     {river: 0, character: 0},
