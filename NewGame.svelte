@@ -11,8 +11,8 @@
         $MainStore.gameState = true;
         $MainStore.livingCharacters = 1;
         charGenerator(1);
-        enemyGenerator(1, 2);
-        enemyGenerator(1, 2);
+        enemyGenerator(1,2,$MainStore.station);
+        enemyGenerator(1,2,$MainStore.station);
         // Generate the raid list for the next raid
         $NextRaid = [];
         let enemyChoice = Math.floor(Math.random() * $EnemyStore.length);

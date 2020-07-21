@@ -5,12 +5,12 @@
 
     const buildShelter = () => {
 		$MainStore.shelters += 1;
-		$MainStore.resources -= 15;
+		$MainStore.resources -= 10;
 	}
 
 	const buildTurret = () => {
 		$MainStore.turrets += 1;
-        $MainStore.resources -= 15;
+        $MainStore.resources -= 10;
 	}
 </script>
 
@@ -22,7 +22,7 @@
     <div class="item defenses">
         <h2>Defenses</h2>
         <div><img src="art/Icons/turrets.png" width="75" height="75" alt="Turret"><img src="art/Icons/turrets.png" width="75" height="75" alt="Turret"></div>
-        {#if $MainStore.resources >= 15}
+        {#if $MainStore.resources >= 10}
             <button on:click={buildTurret}>Build Turret</button>
         {:else}
             <button>Build Turret</button>
@@ -31,7 +31,7 @@
     <div class="item">
         <h2>Housing</h2>
         <div>{$MainStore.shelters} Bunks</div>
-        {#if $MainStore.resources >= 15}
+        {#if $MainStore.resources >= 10}
             <button on:click={buildShelter}>Build Bunk</button>
         {:else}
             <button>Build Bunk</button>
@@ -49,7 +49,6 @@
         {:else if $MainStore.statoin == 5}
             <h2>Indomitable Fortress</h2>
         {/if}
-        <h2>{$MainStore.station}</h2>
         <Upgrade />
     </div>
 </div>

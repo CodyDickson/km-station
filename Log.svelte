@@ -16,17 +16,28 @@
                         {:else}
                             <h3 class="blue">{char.name}</h3>
                         {/if}
-                        <p class="strong">{char.job}</p>
-                        <p>{@html char.jobContent}</p>
                         <p class="strong">{char.activity}</p>
                         <p>{@html char.activityContent}</p>
                     </div>
                 {/each}
                 {#each log.raidContent as raid}
-                <div class="item inner content">
-                    <h3>Raid</h3>
-                    <div class="combat">KM-Station ({raid.defense}) vs. The Transfigured ({raid.raid})</div>
-                    <div class="combat">{raid.raidText}</div>
+                <div class="item inner content containerSmall">
+                    <div class="itemSmall">
+                        <h3>Raid</h3>
+                        <div><img src="art/Icons/fighting.png" width="50" height="50" alt="Fighting"></div>
+                        <div class="combat">KM-Station ({raid.fighting}) vs. The Transfigured ({raid.raid})</div>
+                        <div class="combat">{raid.raidText}</div>
+                    </div>
+                    <div class="itemSmall">
+                        <h3>Scavenging</h3>
+                        <div><img src="art/Icons/scavenging.png" width="50" height="50" alt="Scavenging"></div>
+                        <div>+{log.scavenging} Resources</div>
+                    </div>
+                    <div class="itemSmall">
+                        <h3>Doctoring</h3>
+                        <div><img src="art/Icons/doctoring.png" width="50" height="50" alt="Doctoring"></div>
+                        <div>+{log.doctoring} Health</div>
+                    </div>
                 </div>
                 {/each}
             </div>
@@ -101,5 +112,23 @@
 
     .strong {
         font-weight: bold;
+    }
+
+    .containerSmall {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+        align-items: center;
+	}
+
+    .itemSmall {
+        background: #f2f3f4;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.26);
+        margin: 1em;
+        padding: 1rem;
+        border-radius: 10px;
+        max-width: 300px;
+        border: 1px solid black;
     }
 </style>
