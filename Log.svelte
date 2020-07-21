@@ -16,10 +16,10 @@
                         {:else}
                             <h3 class="blue">{char.name}</h3>
                         {/if}
-                        <p class="italics">{char.job}</p>
-                        <p>{char.jobContent}</p>
-                        <p class="italics">{char.activity}</p>
-                        <p>{char.activityContent}</p>
+                        <p class="strong">{char.job}</p>
+                        <p>{@html char.jobContent}</p>
+                        <p class="strong">{char.activity}</p>
+                        <p>{@html char.activityContent}</p>
                     </div>
                 {/each}
                 {#each log.raidContent as raid}
@@ -39,8 +39,8 @@
             {:else}
                 <h3 class="blue">{$CharStore[0].name}</h3>
             {/if}
-            <p><i>Arrival at KM-Station</i></p>
-            <p>I can still hear the MACHINE, churning somewhere just outside existence. It gnaws at the back of my mind. I don't know what the MACHINE really is, or what it even does. I just know that for an incomprehensible period of time I was caught between the normal world and a nightmare of ever-expanding fractals.</p><p>I was thrown from that churning abyss and collided with the satellite at the center of KM-Station. That was a few hours ago; I figured a journal was a good way to keep track of my thoughts. I remember hearing the screams of other people who were thrown from the storm but I worry they were not as fortunate as me.</p>
+            <p class="strong">Arrival at KM-Station</p>
+            <p>I can still hear the <strong>MACHINE</strong> churning in the background of existence. I don't know what the <strong>MACHINE</strong> is. What it looks like. What it does. I just know that I was in the waking world and then suddenly I was in a nightmare of expanding and collapsing fractals. For days, weeks, years...an incomprehensible amount of time.</p><p>I snapped back to existence while I was falling through the air. I crashed into the sand a few hundred feet away from an old satellite dish. That was a few hours ago; I found this scrap paper in a shack next to the satellite. Hopefully this journal is enough to keep my sanity in this forsaken place.</p><p>Those poor people. Thousands of them hurtling through the air alongside me but they were not fortunate enough to hit the ground. I saw them passing through clouds of radiation and transforming. Transfiguring. Corrupting...</p><p>They're somewhere out beyond KM-Station now. I hear them weeping. Will they try to come for me?</p>
         </div>
     </div>
 </div>
@@ -99,7 +99,7 @@
         color: #85cde5;
     }
 
-    .italics {
-        font-style: italic;
+    .strong {
+        font-weight: bold;
     }
 </style>

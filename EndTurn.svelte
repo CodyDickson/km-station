@@ -91,14 +91,11 @@
                 let temp = '';
                 ///// EXPLORE THE COLLAPSED WORLD /////
                 if (activity == 'Explore the Collapsed World') {
-                    activityChance = random(1,12);
+                    activityChance = random(1,2);
                     if (activityChance == 1) {
                         temp = colorGenerator();
-                        activityContent += 'They wandered the world and found a flower with ' + temp + ' petals. As they approached the flower for closer inspection, they felt the ground begin to tremble. Hundreds of flowers with ' + temp + ' petals began to sprout all around their feet. The ground erupted, split open under pressure, and then - as suddenly as it had started, it stopped. The field of ' + temp + ' flowers was still, their only motion given by the wind. ';
-                        if ($CharStore[x].obsession == temp) {
-                            activityContent += 'Something has awakened inside of ' + $CharStore[x].name + '. A new activity is available for them.';
-                            $CharStore[x].level = 1;
-                        }
+                        activityContent += 'I wandered the world beyond the Station and found a flower with ' + temp + ' petals. I approached it with caution. It was beautiful, with a burgundy center and overlapping petals. As my hand hovered over the flower, I felt the ground begin to tremble. The dirt churned beneath my feed and dozens of flowers with ' + temp + ' petals began to grow. The ground erupted, split open under pressure, and then - as suddenly as it had started - it stopped.</p><p>I spent a few hours lying in the field of ' + temp + ' flowers. It was surprisingly calm and the scent reminded me of my ' + familyGenerator() + '. I wonder if these flowers bloomed from somewhere in my memories?</p><p><i>(' + $CharStore[x].name + ' has gained 1 Memory.)</i>';
+                        $CharStore[x].memories += 1;
                     } else if (activityChance == 2) {
                         temp = animalGenerator();
                         activityContent += 'They explored the world and came across a group of ' + temp + ' which filled them with a sense of ' + emotionGenerator() + ' whenever they went near them. ';

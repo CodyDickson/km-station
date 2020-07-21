@@ -29,15 +29,26 @@
         {/if}
     </div>
     <div class="item">
-        <h2>Shelters</h2>
+        <h2>Housing</h2>
         <div>{$MainStore.shelters} Bunks</div>
         {#if $MainStore.resources >= 15}
-            <button on:click={buildShelter}>Build Shelter</button>
+            <button on:click={buildShelter}>Build Bunk</button>
         {:else}
-            <button>Build Shelter</button>
+            <button>Build Bunk</button>
         {/if}
     </div>
     <div class="item">
+        {#if $MainStore.station == 1}
+            <h2>Desolation</h2>
+        {:else if $MainStore.station == 2}
+            <h2>Shanty Town</h2>
+        {:else if $MainStore.station == 3}
+            <h2>Techno Station</h2>
+        {:else if $MainStore.station == 4}
+            <h2>Satellite Compound</h2>
+        {:else if $MainStore.statoin == 5}
+            <h2>Indomitable Fortress</h2>
+        {/if}
         <h2>{$MainStore.station}</h2>
         <Upgrade />
     </div>

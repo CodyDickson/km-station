@@ -12,7 +12,7 @@ export const MainStore = writable ({
     livingCharacters: 0,
     resources: 15,
     shelters: 1,
-    station: 'Desolation',
+    station: 1,
     turrets: 1,
     week: 0
 });
